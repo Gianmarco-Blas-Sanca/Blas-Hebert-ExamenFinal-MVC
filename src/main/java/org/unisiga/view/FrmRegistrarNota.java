@@ -29,14 +29,14 @@ public class FrmRegistrarNota extends javax.swing.JFrame {
         cargarTablaEstudiantes();
     }
 
-    @SuppressWarnings("unchecked")
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+
         lblTitulo = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        cmbSeccion = new javax.swing.JComboBox<>();
+        cmbSeccion = new javax.swing.JComboBox();
         jLabel3 = new javax.swing.JLabel();
-        cmbEvaluacion = new javax.swing.JComboBox<>();
+        cmbEvaluacion = new javax.swing.JComboBox();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblEstudiantes = new javax.swing.JTable();
         btnGuardarNota = new javax.swing.JButton();
@@ -47,7 +47,7 @@ public class FrmRegistrarNota extends javax.swing.JFrame {
         setTitle("UNISIGA - Registro de Notas");
         getContentPane().setLayout(null);
 
-        lblTitulo.setFont(new java.awt.Font("Arial", java.awt.Font.BOLD, 15));
+        lblTitulo.setFont(new java.awt.Font("Arial", 1, 15)); // NOI18N
         lblTitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTitulo.setText("REGISTRO DE NOTAS");
         getContentPane().add(lblTitulo);
@@ -78,21 +78,30 @@ public class FrmRegistrarNota extends javax.swing.JFrame {
         cmbEvaluacion.setBounds(100, 85, 200, 25);
 
         tblEstudiantes.setModel(new javax.swing.table.DefaultTableModel(
-            new Object[][]{},
-            new String[]{"Estudiante", "Matrícula", "Nota Actual"}
+            new Object [][] {
+
+            },
+            new String [] {
+                "Estudiante", "Matrícula", "Nota Actual"
+            }
         ) {
-            public boolean isCellEditable(int row, int col) { return false; }
+            boolean[] canEdit = new boolean [] {
+                false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
         });
         tblEstudiantes.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
-        tblEstudiantes.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(tblEstudiantes);
+
         getContentPane().add(jScrollPane1);
         jScrollPane1.setBounds(10, 120, 580, 240);
 
         btnGuardarNota.setBackground(new java.awt.Color(50, 150, 50));
         btnGuardarNota.setForeground(new java.awt.Color(255, 255, 255));
         btnGuardarNota.setText("Guardar Nota");
-        btnGuardarNota.setFocusPainted(false);
         btnGuardarNota.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnGuardarNotaActionPerformed(evt);
@@ -109,12 +118,11 @@ public class FrmRegistrarNota extends javax.swing.JFrame {
         });
         getContentPane().add(btnVolver);
         btnVolver.setBounds(290, 370, 100, 30);
-
         getContentPane().add(lblMensaje);
         lblMensaje.setBounds(400, 370, 185, 30);
 
-        setSize(600, 420);
-    }// </editor-fold>
+        pack();
+    }// </editor-fold>//GEN-END:initComponents
 
     private void cmbSeccionActionPerformed(java.awt.event.ActionEvent evt) {
         actualizarEvaluaciones();
@@ -175,16 +183,16 @@ public class FrmRegistrarNota extends javax.swing.JFrame {
         }
     }
 
-    // Variables declaration - do not modify
+    // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnGuardarNota;
     private javax.swing.JButton btnVolver;
-    private javax.swing.JComboBox<String> cmbEvaluacion;
-    private javax.swing.JComboBox<String> cmbSeccion;
+    private javax.swing.JComboBox cmbEvaluacion;
+    private javax.swing.JComboBox cmbSeccion;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblMensaje;
     private javax.swing.JLabel lblTitulo;
     private javax.swing.JTable tblEstudiantes;
-    // End of variables declaration
+    // End of variables declaration//GEN-END:variables
 }

@@ -17,8 +17,9 @@ public class FrmLogin extends javax.swing.JFrame {
     }
 
     @SuppressWarnings("unchecked")
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+
         lblTitulo = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         cmbTipo = new javax.swing.JComboBox<>();
@@ -31,10 +32,12 @@ public class FrmLogin extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("UNISIGA - Iniciar Sesión");
+        setMinimumSize(new java.awt.Dimension(400, 280));
+        setPreferredSize(new java.awt.Dimension(400, 280));
         setResizable(false);
         getContentPane().setLayout(null);
 
-        lblTitulo.setFont(new java.awt.Font("Arial", java.awt.Font.BOLD, 16));
+        lblTitulo.setFont(new java.awt.Font("Arial", 1, 16)); // NOI18N
         lblTitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTitulo.setText("SISTEMA UNISIGA v2");
         getContentPane().add(lblTitulo);
@@ -44,7 +47,7 @@ public class FrmLogin extends javax.swing.JFrame {
         getContentPane().add(jLabel2);
         jLabel2.setBounds(30, 65, 120, 25);
 
-        cmbTipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[]{"Estudiante", "Académico"}));
+        cmbTipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Estudiante", "Académico" }));
         cmbTipo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cmbTipoActionPerformed(evt);
@@ -81,15 +84,16 @@ public class FrmLogin extends javax.swing.JFrame {
         getContentPane().add(lblMensaje);
         lblMensaje.setBounds(30, 215, 340, 25);
 
-        setSize(400, 280);
-    }// </editor-fold>
+        pack();
+        setLocationRelativeTo(null);
+    }// </editor-fold>//GEN-END:initComponents
 
-    private void cmbTipoActionPerformed(java.awt.event.ActionEvent evt) {
+    private void cmbTipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:initComponents
         lblMensaje.setText("");
         cargarUsuarios((String) cmbTipo.getSelectedItem());
-    }
+    }//GEN-LAST:initComponents
 
-    private void btnIngresarActionPerformed(java.awt.event.ActionEvent evt) {
+    private void btnIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:initComponents
         String tipo = (String) cmbTipo.getSelectedItem();
         String usuario = (String) cmbUsuario.getSelectedItem();
         String password = new String(txtPassword.getPassword());
@@ -101,7 +105,7 @@ public class FrmLogin extends javax.swing.JFrame {
         } else {
             lblMensaje.setText("Credenciales incorrectas.");
         }
-    }
+    }//GEN-LAST:initComponents
 
     private void cargarUsuarios(String tipo) {
         cmbUsuario.removeAllItems();
@@ -111,7 +115,7 @@ public class FrmLogin extends javax.swing.JFrame {
         for (String n : nombres) cmbUsuario.addItem(n);
     }
 
-    // Variables declaration - do not modify
+    // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnIngresar;
     private javax.swing.JComboBox<String> cmbTipo;
     private javax.swing.JComboBox<String> cmbUsuario;
@@ -121,5 +125,5 @@ public class FrmLogin extends javax.swing.JFrame {
     private javax.swing.JLabel lblMensaje;
     private javax.swing.JLabel lblTitulo;
     private javax.swing.JPasswordField txtPassword;
-    // End of variables declaration
+    // End of variables declaration//GEN-END:variables
 }

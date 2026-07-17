@@ -27,11 +27,12 @@ public class FrmMisCalificaciones extends javax.swing.JFrame {
     }
 
     @SuppressWarnings("unchecked")
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+
         lblTitulo = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        cmbInscripcion = new javax.swing.JComboBox<>();
+        cmbInscripcion = new javax.swing.JComboBox();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblCalificaciones = new javax.swing.JTable();
         lblPromedio = new javax.swing.JLabel();
@@ -41,7 +42,7 @@ public class FrmMisCalificaciones extends javax.swing.JFrame {
         setTitle("UNISIGA - Mis Calificaciones");
         getContentPane().setLayout(null);
 
-        lblTitulo.setFont(new java.awt.Font("Arial", java.awt.Font.BOLD, 15));
+        lblTitulo.setFont(new java.awt.Font("Arial", 1, 15)); // NOI18N
         lblTitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTitulo.setText("MIS CALIFICACIONES");
         getContentPane().add(lblTitulo);
@@ -60,17 +61,27 @@ public class FrmMisCalificaciones extends javax.swing.JFrame {
         cmbInscripcion.setBounds(145, 50, 360, 25);
 
         tblCalificaciones.setModel(new javax.swing.table.DefaultTableModel(
-            new Object[][]{},
-            new String[]{"Evaluación", "Ponderación", "Mi Nota"}
+            new Object [][] {
+
+            },
+            new String [] {
+                "Evaluación", "Ponderación", "Mi Nota"
+            }
         ) {
-            public boolean isCellEditable(int row, int col) { return false; }
+            boolean[] canEdit = new boolean [] {
+                false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
         });
-        tblCalificaciones.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(tblCalificaciones);
+
         getContentPane().add(jScrollPane1);
         jScrollPane1.setBounds(10, 85, 500, 230);
 
-        lblPromedio.setFont(new java.awt.Font("Arial", java.awt.Font.BOLD, 13));
+        lblPromedio.setFont(new java.awt.Font("Arial", 1, 13)); // NOI18N
         lblPromedio.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblPromedio.setText("Promedio Ponderado: --");
         getContentPane().add(lblPromedio);
@@ -85,8 +96,8 @@ public class FrmMisCalificaciones extends javax.swing.JFrame {
         getContentPane().add(btnVolver);
         btnVolver.setBounds(210, 360, 100, 30);
 
-        setSize(520, 410);
-    }// </editor-fold>
+        pack();
+    }// </editor-fold>//GEN-END:initComponents
 
     private void cmbInscripcionActionPerformed(java.awt.event.ActionEvent evt) {
         cargarCalificaciones();
@@ -109,13 +120,13 @@ public class FrmMisCalificaciones extends javax.swing.JFrame {
         lblPromedio.setText("Promedio Ponderado: " + controller.calcularPromedio(ins));
     }
 
-    // Variables declaration - do not modify
+    // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnVolver;
-    private javax.swing.JComboBox<String> cmbInscripcion;
+    private javax.swing.JComboBox cmbInscripcion;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblPromedio;
     private javax.swing.JLabel lblTitulo;
     private javax.swing.JTable tblCalificaciones;
-    // End of variables declaration
+    // End of variables declaration//GEN-END:variables
 }

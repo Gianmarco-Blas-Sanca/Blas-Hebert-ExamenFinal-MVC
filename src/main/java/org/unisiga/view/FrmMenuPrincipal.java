@@ -26,8 +26,9 @@ public class FrmMenuPrincipal extends javax.swing.JFrame {
     }
 
     @SuppressWarnings("unchecked")
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+
         jLabel1 = new javax.swing.JLabel();
         lblNombre = new javax.swing.JLabel();
         btnInscribir = new javax.swing.JButton();
@@ -37,6 +38,8 @@ public class FrmMenuPrincipal extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("UNISIGA - Menú Principal");
+        setMinimumSize(new java.awt.Dimension(340, 300));
+        setPreferredSize(new java.awt.Dimension(340, 300));
         setResizable(false);
         getContentPane().setLayout(null);
 
@@ -45,7 +48,7 @@ public class FrmMenuPrincipal extends javax.swing.JFrame {
         getContentPane().add(jLabel1);
         jLabel1.setBounds(20, 20, 300, 25);
 
-        lblNombre.setFont(new java.awt.Font("Arial", java.awt.Font.BOLD, 15));
+        lblNombre.setFont(new java.awt.Font("Arial", 1, 15)); // NOI18N
         lblNombre.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblNombre.setText("Nombre Usuario");
         getContentPane().add(lblNombre);
@@ -99,41 +102,42 @@ public class FrmMenuPrincipal extends javax.swing.JFrame {
         getContentPane().add(btnSalir);
         btnSalir.setBounds(55, 200, 220, 35);
 
-        setSize(340, 300);
-    }// </editor-fold>
+        pack();
+        setLocationRelativeTo(null);
+    }// </editor-fold>//GEN-END:initComponents
 
-    private void btnInscribirActionPerformed(java.awt.event.ActionEvent evt) {
+    private void btnInscribirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:initComponents
         Estudiante est = (Estudiante) controller.getUsuario();
         InscripcionController ic = new InscripcionController(est, controller.getLoginController().getAsignaturasDb());
         new FrmInscripcion(ic, this).setVisible(true);
         setVisible(false);
-    }
+    }//GEN-LAST:initComponents
 
-    private void btnNotasActionPerformed(java.awt.event.ActionEvent evt) {
+    private void btnNotasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:initComponents
         Estudiante est = (Estudiante) controller.getUsuario();
         CalificacionController cc = new CalificacionController(est);
         new FrmMisCalificaciones(cc, this).setVisible(true);
         setVisible(false);
-    }
+    }//GEN-LAST:initComponents
 
-    private void btnRegistrarNotaActionPerformed(java.awt.event.ActionEvent evt) {
+    private void btnRegistrarNotaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:initComponents
         Academico acad = (Academico) controller.getUsuario();
         NotaController nc = new NotaController(acad);
         new FrmRegistrarNota(nc, this).setVisible(true);
         setVisible(false);
-    }
+    }//GEN-LAST:initComponents
 
-    private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {
+    private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:initComponents
         new FrmLogin().setVisible(true);
         dispose();
-    }
+    }//GEN-LAST:initComponents
 
-    // Variables declaration - do not modify
+    // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnInscribir;
     private javax.swing.JButton btnNotas;
     private javax.swing.JButton btnRegistrarNota;
     private javax.swing.JButton btnSalir;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel lblNombre;
-    // End of variables declaration
+    // End of variables declaration//GEN-END:variables
 }
