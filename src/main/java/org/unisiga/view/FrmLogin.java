@@ -14,8 +14,19 @@ public class FrmLogin extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);
         cargarUsuarios("Estudiante");
+        actualizarMensajeAyuda();
     }
 
+    private void actualizarMensajeAyuda() {
+        String tipo = (String) cmbTipo.getSelectedItem();
+        if ("Estudiante".equals(tipo)) {
+            lblAyuda.setText("Requisito: Mínimo 8 caracteres.");
+        } else {
+            lblAyuda.setText("Requisito: Contraseña debe contener el carácter '@'.");
+        }
+    }
+
+    @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
@@ -26,6 +37,7 @@ public class FrmLogin extends javax.swing.JFrame {
         cmbUsuario = new javax.swing.JComboBox<>();
         jLabel4 = new javax.swing.JLabel();
         txtPassword = new javax.swing.JPasswordField();
+        lblAyuda = new javax.swing.JLabel();
         btnIngresar = new javax.swing.JButton();
         lblMensaje = new javax.swing.JLabel();
 
@@ -69,6 +81,13 @@ public class FrmLogin extends javax.swing.JFrame {
         getContentPane().add(txtPassword);
         txtPassword.setBounds(160, 135, 180, 25);
 
+        lblAyuda.setFont(new java.awt.Font("Arial", 2, 10)); // NOI18N
+        lblAyuda.setForeground(new java.awt.Color(100, 100, 100));
+        lblAyuda.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblAyuda.setText("Requisito: Mínimo 8 caracteres");
+        getContentPane().add(lblAyuda);
+        lblAyuda.setBounds(30, 165, 340, 15);
+
         btnIngresar.setText("Ingresar");
         btnIngresar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -76,23 +95,24 @@ public class FrmLogin extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnIngresar);
-        btnIngresar.setBounds(120, 175, 160, 30);
+        btnIngresar.setBounds(120, 190, 160, 30);
 
         lblMensaje.setForeground(new java.awt.Color(255, 0, 0));
         lblMensaje.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         getContentPane().add(lblMensaje);
-        lblMensaje.setBounds(30, 215, 340, 25);
+        lblMensaje.setBounds(30, 230, 340, 25);
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void cmbTipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbTipoActionPerformed
+    private void cmbTipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:initComponents
         lblMensaje.setText("");
         cargarUsuarios((String) cmbTipo.getSelectedItem());
-    }//GEN-LAST:event_cmbTipoActionPerformed
+        actualizarMensajeAyuda();
+    }//GEN-LAST:initComponents
 
-    private void btnIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresarActionPerformed
+    private void btnIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:initComponents
         String tipo = (String) cmbTipo.getSelectedItem();
         String usuario = (String) cmbUsuario.getSelectedItem();
         String password = new String(txtPassword.getPassword());
@@ -104,7 +124,7 @@ public class FrmLogin extends javax.swing.JFrame {
         } else {
             lblMensaje.setText("Credenciales incorrectas.");
         }
-    }//GEN-LAST:event_btnIngresarActionPerformed
+    }//GEN-LAST:initComponents
 
     private void cargarUsuarios(String tipo) {
         cmbUsuario.removeAllItems();
@@ -121,6 +141,7 @@ public class FrmLogin extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel lblAyuda;
     private javax.swing.JLabel lblMensaje;
     private javax.swing.JLabel lblTitulo;
     private javax.swing.JPasswordField txtPassword;
