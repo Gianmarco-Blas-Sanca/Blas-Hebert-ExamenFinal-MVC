@@ -40,6 +40,7 @@ public class FrmMisCalificaciones extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("UNISIGA - Mis Calificaciones");
+        setMinimumSize(new java.awt.Dimension(530, 460));
         getContentPane().setLayout(null);
 
         lblTitulo.setFont(new java.awt.Font("Arial", 1, 15)); // NOI18N
@@ -97,6 +98,7 @@ public class FrmMisCalificaciones extends javax.swing.JFrame {
         btnVolver.setBounds(210, 360, 100, 30);
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void cmbInscripcionActionPerformed(java.awt.event.ActionEvent evt) {

@@ -31,13 +31,14 @@ public class FrmInscripcion extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("UNISIGA - Inscripción de Secciones");
+        setMinimumSize(new java.awt.Dimension(720, 440));
         getContentPane().setLayout(null);
 
         lblTitulo.setFont(new java.awt.Font("Arial", 1, 15)); // NOI18N
         lblTitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTitulo.setText("INSCRIPCIÓN DE SECCIONES");
         getContentPane().add(lblTitulo);
-        lblTitulo.setBounds(20, 10, 390, 30);
+        lblTitulo.setBounds(0, 10, 700, 30);
 
         tblSecciones.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -59,7 +60,7 @@ public class FrmInscripcion extends javax.swing.JFrame {
         jScrollPane1.setViewportView(tblSecciones);
 
         getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(20, 50, 390, 270);
+        jScrollPane1.setBounds(10, 50, 680, 270);
 
         btnInscribir.setBackground(new java.awt.Color(50, 150, 50));
         btnInscribir.setForeground(new java.awt.Color(255, 255, 255));
@@ -70,7 +71,7 @@ public class FrmInscripcion extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnInscribir);
-        btnInscribir.setBounds(30, 330, 160, 30);
+        btnInscribir.setBounds(130, 330, 160, 30);
 
         btnVolver.setText("Volver");
         btnVolver.addActionListener(new java.awt.event.ActionListener() {
@@ -79,11 +80,12 @@ public class FrmInscripcion extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnVolver);
-        btnVolver.setBounds(240, 330, 100, 30);
+        btnVolver.setBounds(310, 330, 100, 30);
         getContentPane().add(lblMensaje);
         lblMensaje.setBounds(420, 330, 260, 30);
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnInscribirActionPerformed(java.awt.event.ActionEvent evt) {

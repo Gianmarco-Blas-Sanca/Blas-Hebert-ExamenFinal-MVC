@@ -25,7 +25,6 @@ public class FrmMenuPrincipal extends javax.swing.JFrame {
         }
     }
 
-    @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
@@ -38,8 +37,8 @@ public class FrmMenuPrincipal extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("UNISIGA - Menú Principal");
-        setMinimumSize(new java.awt.Dimension(340, 300));
-        setPreferredSize(new java.awt.Dimension(340, 300));
+        setMinimumSize(new java.awt.Dimension(340, 340));
+        setPreferredSize(new java.awt.Dimension(340, 340));
         setResizable(false);
         getContentPane().setLayout(null);
 
@@ -106,31 +105,31 @@ public class FrmMenuPrincipal extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnInscribirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:initComponents
+    private void btnInscribirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInscribirActionPerformed
         Estudiante est = (Estudiante) controller.getUsuario();
         InscripcionController ic = new InscripcionController(est, controller.getLoginController().getAsignaturasDb());
         new FrmInscripcion(ic, this).setVisible(true);
         setVisible(false);
-    }//GEN-LAST:initComponents
+    }//GEN-LAST:event_btnInscribirActionPerformed
 
-    private void btnNotasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:initComponents
+    private void btnNotasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNotasActionPerformed
         Estudiante est = (Estudiante) controller.getUsuario();
         CalificacionController cc = new CalificacionController(est);
         new FrmMisCalificaciones(cc, this).setVisible(true);
         setVisible(false);
-    }//GEN-LAST:initComponents
+    }//GEN-LAST:event_btnNotasActionPerformed
 
-    private void btnRegistrarNotaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:initComponents
+    private void btnRegistrarNotaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarNotaActionPerformed
         Academico acad = (Academico) controller.getUsuario();
         NotaController nc = new NotaController(acad);
         new FrmRegistrarNota(nc, this).setVisible(true);
         setVisible(false);
-    }//GEN-LAST:initComponents
+    }//GEN-LAST:event_btnRegistrarNotaActionPerformed
 
-    private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:initComponents
+    private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
         new FrmLogin().setVisible(true);
         dispose();
-    }//GEN-LAST:initComponents
+    }//GEN-LAST:event_btnSalirActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnInscribir;

@@ -16,7 +16,6 @@ public class FrmLogin extends javax.swing.JFrame {
         cargarUsuarios("Estudiante");
     }
 
-    @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
@@ -32,8 +31,8 @@ public class FrmLogin extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("UNISIGA - Iniciar Sesión");
-        setMinimumSize(new java.awt.Dimension(400, 280));
-        setPreferredSize(new java.awt.Dimension(400, 280));
+        setMinimumSize(new java.awt.Dimension(400, 320));
+        setPreferredSize(new java.awt.Dimension(400, 320));
         setResizable(false);
         getContentPane().setLayout(null);
 
@@ -88,12 +87,12 @@ public class FrmLogin extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void cmbTipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:initComponents
+    private void cmbTipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbTipoActionPerformed
         lblMensaje.setText("");
         cargarUsuarios((String) cmbTipo.getSelectedItem());
-    }//GEN-LAST:initComponents
+    }//GEN-LAST:event_cmbTipoActionPerformed
 
-    private void btnIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:initComponents
+    private void btnIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresarActionPerformed
         String tipo = (String) cmbTipo.getSelectedItem();
         String usuario = (String) cmbUsuario.getSelectedItem();
         String password = new String(txtPassword.getPassword());
@@ -105,7 +104,7 @@ public class FrmLogin extends javax.swing.JFrame {
         } else {
             lblMensaje.setText("Credenciales incorrectas.");
         }
-    }//GEN-LAST:initComponents
+    }//GEN-LAST:event_btnIngresarActionPerformed
 
     private void cargarUsuarios(String tipo) {
         cmbUsuario.removeAllItems();
