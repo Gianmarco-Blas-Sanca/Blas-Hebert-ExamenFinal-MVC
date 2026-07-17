@@ -6,14 +6,14 @@ import java.util.List;
 public class Estudiante extends MiembroUniversitario {
     private String matricula;
     private int anioIngreso;
-    private float promedioPpa;
+    private float promedio;
     private List<Inscripcion> inscripciones;
 
-    public Estudiante(String rut, String nombre, String correo, String matricula, int anioIngreso, float promedioPpa) {
+    public Estudiante(String rut, String nombre, String correo, String matricula, int anioIngreso, float promedio) {
         super(rut, nombre, correo);
         this.matricula = matricula;
         this.anioIngreso = anioIngreso;
-        this.promedioPpa = promedioPpa;
+        this.promedio = promedio;
         this.inscripciones = new ArrayList<>();
     }
 
@@ -27,6 +27,10 @@ public class Estudiante extends MiembroUniversitario {
     }
 
     public String getMatricula() { return matricula; }
-    public float getPromedioPpa() { return promedioPpa; }
+    public void setMatricula(String matricula) { this.matricula = matricula; }
+    public int getAnioIngreso() { return anioIngreso; }
+    public void setAnioIngreso(int anioIngreso) { this.anioIngreso = anioIngreso; }
+    public float getPromedio() { return promedio; }
+    public void setPromedio(float promedio) { this.promedio = promedio; }
     public List<Inscripcion> getInscripciones() { return inscripciones; }
 }

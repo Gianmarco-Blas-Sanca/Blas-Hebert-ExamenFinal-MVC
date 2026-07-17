@@ -25,7 +25,9 @@ public class Seccion {
 
     public char getIdGrupo() { return idGrupo; }
     public int getCupoMaximo() { return cupoMaximo; }
+    public void setCupoMaximo(int cupoMaximo) { this.cupoMaximo = cupoMaximo; }
     public String getHorario() { return horario; }
+    public void setHorario(String horario) { this.horario = horario; }
     public Asignatura getAsignatura() { return asignatura; }
     public Academico getDocenteDicta() { return docenteDicta; }
     public List<Inscripcion> getInscripciones() { return inscripciones; }

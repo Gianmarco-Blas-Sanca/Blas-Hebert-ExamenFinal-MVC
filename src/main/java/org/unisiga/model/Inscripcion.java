@@ -24,5 +24,6 @@ public class Inscripcion {
     public String getEstadoInscripcion() { return estadoInscripcion; }
     public void setEstadoInscripcion(String estado) { this.estadoInscripcion = estado; }
     public Date getFechaInscripcion() { return fechaInscripcion; }
+    public void setFechaInscripcion(Date fechaInscripcion) { this.fechaInscripcion = fechaInscripcion; }
     public List<Calificacion> getCalificaciones() { return calificaciones; }
 }
