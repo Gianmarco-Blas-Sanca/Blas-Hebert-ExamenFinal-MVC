@@ -18,11 +18,23 @@ public class Academico extends MiembroUniversitario {
 
     @Override
     public boolean login(String password) {
-        throw new UnsupportedOperationException("Método login() no implementado aún.");
+        return password != null && password.contains("@");
     }
 
     public void registrarNota(Inscripcion inscripcion, Evaluacion evaluacion, float valorNota) {
-        throw new UnsupportedOperationException("Método registrarNota() no implementado aún.");
+        if (inscripcion == null || evaluacion == null)
+            throw new IllegalArgumentException("Los parámetros no pueden ser nulos.");
+        if (valorNota < 1.0f || valorNota > 7.0f)
+            throw new IllegalArgumentException("La nota debe estar entre 1.0 y 7.0.");
+        for (Calificacion c : inscripcion.getCalificaciones()) {
+            if (c.getEvaluacion() == evaluacion) {
+                c.setNota(valorNota);
+                return;
+            }
+        }
+        Calificacion cal = new Calificacion(valorNota, inscripcion, evaluacion);
+        inscripcion.getCalificaciones().add(cal);
+        evaluacion.getCalificaciones().add(cal);
     }
 
     public String getIdEmpleado() { return idEmpleado; }

@@ -19,11 +19,16 @@ public class Estudiante extends MiembroUniversitario {
 
     @Override
     public boolean login(String password) {
-        throw new UnsupportedOperationException("Método login() no implementado aún.");
+        return password != null && password.length() >= 8;
     }
 
     public void inscribirSeccion(Seccion seccion) {
-        throw new UnsupportedOperationException("Método inscribirSeccion() no implementado aún.");
+        if (seccion == null) throw new IllegalArgumentException("La sección no puede ser nula.");
+        if (seccion.getInscripciones().size() >= seccion.getCupoMaximo())
+            throw new IllegalStateException("La sección no tiene cupos disponibles.");
+        Inscripcion ins = new Inscripcion(this, seccion);
+        inscripciones.add(ins);
+        seccion.getInscripciones().add(ins);
     }
 
     public String getMatricula() { return matricula; }

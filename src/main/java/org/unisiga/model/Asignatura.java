@@ -7,7 +7,7 @@ public class Asignatura {
     private String codigo;
     private String nombre;
     private int creditosSCT;
-    
+
     private List<Asignatura> prerrequisitos;
     private List<Seccion> secciones;
     private List<Evaluacion> evaluaciones;
@@ -22,15 +22,21 @@ public class Asignatura {
     }
 
     public void agregarPrerrequisito(Asignatura asig) {
-        throw new UnsupportedOperationException("Método agregarPrerrequisito() no implementado aún.");
+        if (asig != null && !prerrequisitos.contains(asig)) {
+            prerrequisitos.add(asig);
+        }
     }
 
     public Seccion crearSeccion(char idGrupo, int cupoMaximo, String horario) {
-        throw new UnsupportedOperationException("Método crearSeccion() no implementado aún.");
+        Seccion s = new Seccion(idGrupo, cupoMaximo, horario, this);
+        secciones.add(s);
+        return s;
     }
 
     public Evaluacion crearEvaluacion(int id, String titulo, float ponderacion) {
-        throw new UnsupportedOperationException("Método crearEvaluacion() no implementado aún.");
+        Evaluacion e = new Evaluacion(id, titulo, ponderacion, this);
+        evaluaciones.add(e);
+        return e;
     }
 
     public String getCodigo() { return codigo; }

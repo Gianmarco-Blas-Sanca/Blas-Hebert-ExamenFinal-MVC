@@ -20,7 +20,10 @@ public class Seccion {
     }
 
     public void asignarDocente(Academico docente) {
-        throw new UnsupportedOperationException("Método asignarDocente() no implementado aún.");
+        this.docenteDicta = docente;
+        if (docente != null && !docente.getSeccionesDictadas().contains(this)) {
+            docente.getSeccionesDictadas().add(this);
+        }
     }
 
     public char getIdGrupo() { return idGrupo; }
