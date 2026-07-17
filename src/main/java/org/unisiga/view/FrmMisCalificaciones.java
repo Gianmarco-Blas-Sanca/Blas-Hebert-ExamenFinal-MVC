@@ -1,85 +1,106 @@
 package org.unisiga.view;
 
-import javax.swing.*;
-import javax.swing.table.DefaultTableModel;
-import java.awt.*;
 import java.util.List;
+import javax.swing.table.DefaultTableModel;
 import org.unisiga.controller.CalificacionController;
 import org.unisiga.model.Inscripcion;
 
-public class FrmMisCalificaciones extends JFrame {
-    private JComboBox<String> cmbInscripcion;
-    private JTable tblCalificaciones;
-    private DefaultTableModel modeloTabla;
-    private JLabel lblPromedio;
-    private JButton btnVolver;
+public class FrmMisCalificaciones extends javax.swing.JFrame {
+
     private CalificacionController controller;
-    private JFrame ventanaPadre;
+    private javax.swing.JFrame ventanaPadre;
+    private DefaultTableModel modeloTabla;
     private List<Inscripcion> inscripciones;
 
-    public FrmMisCalificaciones(CalificacionController controller, JFrame ventanaPadre) {
+    public FrmMisCalificaciones(CalificacionController controller, javax.swing.JFrame ventanaPadre) {
         this.controller = controller;
         this.ventanaPadre = ventanaPadre;
-        setTitle("UNISIGA - Mis Calificaciones");
-        setSize(520, 380);
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
-        setLocationRelativeTo(null);
         initComponents();
-    }
-
-    private void initComponents() {
-        setLayout(new BorderLayout(8, 8));
-
-        JPanel panelNorte = new JPanel(new BorderLayout());
-        JLabel titulo = new JLabel("MIS CALIFICACIONES", SwingConstants.CENTER);
-        titulo.setFont(new Font("Arial", Font.BOLD, 15));
-        titulo.setBorder(BorderFactory.createEmptyBorder(10, 0, 5, 0));
-        panelNorte.add(titulo, BorderLayout.NORTH);
-
-        JPanel panelCombo = new JPanel(new FlowLayout(FlowLayout.LEFT, 15, 5));
-        panelCombo.add(new JLabel("Asignatura inscrita:"));
-        cmbInscripcion = new JComboBox<>();
-        cmbInscripcion.setPreferredSize(new Dimension(280, 25));
-        panelCombo.add(cmbInscripcion);
-        panelNorte.add(panelCombo, BorderLayout.CENTER);
-        add(panelNorte, BorderLayout.NORTH);
-
-        String[] cols = {"Evaluación", "Ponderación", "Mi Nota"};
-        modeloTabla = new DefaultTableModel(cols, 0) {
-            public boolean isCellEditable(int r, int c) { return false; }
-        };
-        tblCalificaciones = new JTable(modeloTabla);
-        tblCalificaciones.getTableHeader().setReorderingAllowed(false);
-        add(new JScrollPane(tblCalificaciones), BorderLayout.CENTER);
-
-        JPanel panelSur = new JPanel(new BorderLayout());
-        lblPromedio = new JLabel("Promedio Ponderado: --", SwingConstants.CENTER);
-        lblPromedio.setFont(new Font("Arial", Font.BOLD, 13));
-        lblPromedio.setBorder(BorderFactory.createEmptyBorder(5, 0, 5, 0));
-        panelSur.add(lblPromedio, BorderLayout.CENTER);
-
-        JPanel panelBtn = new JPanel(new FlowLayout(FlowLayout.CENTER));
-        btnVolver = new JButton("Volver");
-        panelBtn.add(btnVolver);
-        panelSur.add(panelBtn, BorderLayout.SOUTH);
-        add(panelSur, BorderLayout.SOUTH);
-
+        setLocationRelativeTo(null);
+        modeloTabla = (DefaultTableModel) tblCalificaciones.getModel();
         inscripciones = controller.getInscripcionesActivas();
         for (Inscripcion ins : inscripciones) {
             cmbInscripcion.addItem(ins.getSeccion().getAsignatura().getNombre()
                     + " [" + ins.getEstadoInscripcion() + "]");
         }
-
-        cmbInscripcion.addActionListener(e -> cargarCalificaciones());
         cargarCalificaciones();
+    }
 
-        btnVolver.addActionListener(e -> { ventanaPadre.setVisible(true); dispose(); });
+    @SuppressWarnings("unchecked")
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">
+    private void initComponents() {
+        lblTitulo = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        cmbInscripcion = new javax.swing.JComboBox<>();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tblCalificaciones = new javax.swing.JTable();
+        lblPromedio = new javax.swing.JLabel();
+        btnVolver = new javax.swing.JButton();
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("UNISIGA - Mis Calificaciones");
+        getContentPane().setLayout(null);
+
+        lblTitulo.setFont(new java.awt.Font("Arial", java.awt.Font.BOLD, 15));
+        lblTitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblTitulo.setText("MIS CALIFICACIONES");
+        getContentPane().add(lblTitulo);
+        lblTitulo.setBounds(0, 10, 520, 30);
+
+        jLabel2.setText("Asignatura inscrita:");
+        getContentPane().add(jLabel2);
+        jLabel2.setBounds(15, 50, 120, 25);
+
+        cmbInscripcion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbInscripcionActionPerformed(evt);
+            }
+        });
+        getContentPane().add(cmbInscripcion);
+        cmbInscripcion.setBounds(145, 50, 360, 25);
+
+        tblCalificaciones.setModel(new javax.swing.table.DefaultTableModel(
+            new Object[][]{},
+            new String[]{"Evaluación", "Ponderación", "Mi Nota"}
+        ) {
+            public boolean isCellEditable(int row, int col) { return false; }
+        });
+        tblCalificaciones.getTableHeader().setReorderingAllowed(false);
+        jScrollPane1.setViewportView(tblCalificaciones);
+        getContentPane().add(jScrollPane1);
+        jScrollPane1.setBounds(10, 85, 500, 230);
+
+        lblPromedio.setFont(new java.awt.Font("Arial", java.awt.Font.BOLD, 13));
+        lblPromedio.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblPromedio.setText("Promedio Ponderado: --");
+        getContentPane().add(lblPromedio);
+        lblPromedio.setBounds(10, 325, 500, 25);
+
+        btnVolver.setText("Volver");
+        btnVolver.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVolverActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnVolver);
+        btnVolver.setBounds(210, 360, 100, 30);
+
+        setSize(520, 410);
+    }// </editor-fold>
+
+    private void cmbInscripcionActionPerformed(java.awt.event.ActionEvent evt) {
+        cargarCalificaciones();
+    }
+
+    private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {
+        ventanaPadre.setVisible(true);
+        dispose();
     }
 
     private void cargarCalificaciones() {
         modeloTabla.setRowCount(0);
         int idx = cmbInscripcion.getSelectedIndex();
-        if (idx < 0 || inscripciones.isEmpty()) {
+        if (idx < 0 || inscripciones == null || inscripciones.isEmpty()) {
             lblPromedio.setText("Promedio Ponderado: --");
             return;
         }
@@ -87,4 +108,14 @@ public class FrmMisCalificaciones extends JFrame {
         for (Object[] row : controller.getTablaCalificaciones(ins)) modeloTabla.addRow(row);
         lblPromedio.setText("Promedio Ponderado: " + controller.calcularPromedio(ins));
     }
+
+    // Variables declaration - do not modify
+    private javax.swing.JButton btnVolver;
+    private javax.swing.JComboBox<String> cmbInscripcion;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lblPromedio;
+    private javax.swing.JLabel lblTitulo;
+    private javax.swing.JTable tblCalificaciones;
+    // End of variables declaration
 }

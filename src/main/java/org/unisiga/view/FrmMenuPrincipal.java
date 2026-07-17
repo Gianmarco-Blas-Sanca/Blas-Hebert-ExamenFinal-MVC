@@ -1,94 +1,139 @@
 package org.unisiga.view;
 
-import javax.swing.*;
-import java.awt.*;
 import org.unisiga.controller.*;
 import org.unisiga.model.*;
 
-public class FrmMenuPrincipal extends JFrame {
+public class FrmMenuPrincipal extends javax.swing.JFrame {
+
     private MenuController controller;
 
     public FrmMenuPrincipal(MenuController controller) {
         this.controller = controller;
-        setTitle("UNISIGA - Menú Principal");
-        setSize(340, 300);
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
-        setLocationRelativeTo(null);
-        setResizable(false);
         initComponents();
+        setLocationRelativeTo(null);
+        lblNombre.setText(controller.getNombreUsuario());
+        configurarBotones();
     }
 
-    private void initComponents() {
-        JPanel panel = new JPanel();
-        panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
-        panel.setBorder(BorderFactory.createEmptyBorder(25, 40, 25, 40));
-
-        JLabel lblBienvenido = new JLabel("Bienvenido/a", SwingConstants.CENTER);
-        lblBienvenido.setFont(new Font("Arial", Font.PLAIN, 13));
-        lblBienvenido.setAlignmentX(CENTER_ALIGNMENT);
-        panel.add(lblBienvenido);
-
-        JLabel lblNombre = new JLabel(controller.getNombreUsuario(), SwingConstants.CENTER);
-        lblNombre.setFont(new Font("Arial", Font.BOLD, 15));
-        lblNombre.setAlignmentX(CENTER_ALIGNMENT);
-        panel.add(lblNombre);
-        panel.add(Box.createVerticalStrut(20));
-
-        if (controller.esEstudiante()) {
-            JButton btnInscribir = crearBoton("Inscribirme en una Sección", new Color(50, 100, 200));
-            JButton btnNotas = crearBoton("Ver Mis Calificaciones", new Color(50, 100, 200));
-
-            panel.add(btnInscribir);
-            panel.add(Box.createVerticalStrut(10));
-            panel.add(btnNotas);
-            panel.add(Box.createVerticalStrut(10));
-
-            btnInscribir.addActionListener(e -> {
-                Estudiante est = (Estudiante) controller.getUsuario();
-                InscripcionController ic = new InscripcionController(est, controller.getLoginController().getAsignaturasDb());
-                new FrmInscripcion(ic, this).setVisible(true);
-                setVisible(false);
-            });
-
-            btnNotas.addActionListener(e -> {
-                Estudiante est = (Estudiante) controller.getUsuario();
-                CalificacionController cc = new CalificacionController(est);
-                new FrmMisCalificaciones(cc, this).setVisible(true);
-                setVisible(false);
-            });
-        }
-
+    private void configurarBotones() {
+        btnInscribir.setVisible(controller.esEstudiante());
+        btnNotas.setVisible(controller.esEstudiante());
+        btnRegistrarNota.setVisible(controller.esAcademico());
         if (controller.esAcademico()) {
-            JButton btnNota = crearBoton("Registrar Nota", new Color(50, 100, 200));
-            panel.add(btnNota);
-            panel.add(Box.createVerticalStrut(10));
-
-            btnNota.addActionListener(e -> {
-                Academico acad = (Academico) controller.getUsuario();
-                NotaController nc = new NotaController(acad);
-                new FrmRegistrarNota(nc, this).setVisible(true);
-                setVisible(false);
-            });
+            btnRegistrarNota.setBounds(55, 100, 220, 35);
+            btnSalir.setBounds(55, 155, 220, 35);
         }
+    }
 
-        JButton btnSalir = crearBoton("Cerrar Sesión", new Color(190, 50, 50));
-        panel.add(btnSalir);
+    @SuppressWarnings("unchecked")
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">
+    private void initComponents() {
+        jLabel1 = new javax.swing.JLabel();
+        lblNombre = new javax.swing.JLabel();
+        btnInscribir = new javax.swing.JButton();
+        btnNotas = new javax.swing.JButton();
+        btnRegistrarNota = new javax.swing.JButton();
+        btnSalir = new javax.swing.JButton();
 
-        btnSalir.addActionListener(e -> {
-            new FrmLogin().setVisible(true);
-            dispose();
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("UNISIGA - Menú Principal");
+        setResizable(false);
+        getContentPane().setLayout(null);
+
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("Bienvenido/a");
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(20, 20, 300, 25);
+
+        lblNombre.setFont(new java.awt.Font("Arial", java.awt.Font.BOLD, 15));
+        lblNombre.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblNombre.setText("Nombre Usuario");
+        getContentPane().add(lblNombre);
+        lblNombre.setBounds(20, 50, 300, 30);
+
+        btnInscribir.setBackground(new java.awt.Color(50, 100, 200));
+        btnInscribir.setForeground(new java.awt.Color(255, 255, 255));
+        btnInscribir.setText("Inscribirme en una Sección");
+        btnInscribir.setFocusPainted(false);
+        btnInscribir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnInscribirActionPerformed(evt);
+            }
         });
+        getContentPane().add(btnInscribir);
+        btnInscribir.setBounds(55, 100, 220, 35);
 
-        add(panel);
+        btnNotas.setBackground(new java.awt.Color(50, 100, 200));
+        btnNotas.setForeground(new java.awt.Color(255, 255, 255));
+        btnNotas.setText("Ver Mis Calificaciones");
+        btnNotas.setFocusPainted(false);
+        btnNotas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNotasActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnNotas);
+        btnNotas.setBounds(55, 145, 220, 35);
+
+        btnRegistrarNota.setBackground(new java.awt.Color(50, 100, 200));
+        btnRegistrarNota.setForeground(new java.awt.Color(255, 255, 255));
+        btnRegistrarNota.setText("Registrar Nota");
+        btnRegistrarNota.setFocusPainted(false);
+        btnRegistrarNota.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegistrarNotaActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnRegistrarNota);
+        btnRegistrarNota.setBounds(55, 100, 220, 35);
+
+        btnSalir.setBackground(new java.awt.Color(190, 50, 50));
+        btnSalir.setForeground(new java.awt.Color(255, 255, 255));
+        btnSalir.setText("Cerrar Sesión");
+        btnSalir.setFocusPainted(false);
+        btnSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSalirActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnSalir);
+        btnSalir.setBounds(55, 200, 220, 35);
+
+        setSize(340, 300);
+    }// </editor-fold>
+
+    private void btnInscribirActionPerformed(java.awt.event.ActionEvent evt) {
+        Estudiante est = (Estudiante) controller.getUsuario();
+        InscripcionController ic = new InscripcionController(est, controller.getLoginController().getAsignaturasDb());
+        new FrmInscripcion(ic, this).setVisible(true);
+        setVisible(false);
     }
 
-    private JButton crearBoton(String texto, Color color) {
-        JButton btn = new JButton(texto);
-        btn.setAlignmentX(CENTER_ALIGNMENT);
-        btn.setMaximumSize(new Dimension(220, 35));
-        btn.setBackground(color);
-        btn.setForeground(Color.WHITE);
-        btn.setFocusPainted(false);
-        return btn;
+    private void btnNotasActionPerformed(java.awt.event.ActionEvent evt) {
+        Estudiante est = (Estudiante) controller.getUsuario();
+        CalificacionController cc = new CalificacionController(est);
+        new FrmMisCalificaciones(cc, this).setVisible(true);
+        setVisible(false);
     }
+
+    private void btnRegistrarNotaActionPerformed(java.awt.event.ActionEvent evt) {
+        Academico acad = (Academico) controller.getUsuario();
+        NotaController nc = new NotaController(acad);
+        new FrmRegistrarNota(nc, this).setVisible(true);
+        setVisible(false);
+    }
+
+    private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {
+        new FrmLogin().setVisible(true);
+        dispose();
+    }
+
+    // Variables declaration - do not modify
+    private javax.swing.JButton btnInscribir;
+    private javax.swing.JButton btnNotas;
+    private javax.swing.JButton btnRegistrarNota;
+    private javax.swing.JButton btnSalir;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel lblNombre;
+    // End of variables declaration
 }

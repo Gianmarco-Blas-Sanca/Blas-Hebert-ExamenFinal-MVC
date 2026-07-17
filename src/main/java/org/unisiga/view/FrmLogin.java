@@ -1,91 +1,106 @@
 package org.unisiga.view;
 
-import javax.swing.*;
-import java.awt.*;
 import java.util.List;
 import org.unisiga.controller.LoginController;
 import org.unisiga.controller.MenuController;
 import org.unisiga.model.MiembroUniversitario;
 
-public class FrmLogin extends JFrame {
-    private JComboBox<String> cmbTipo;
-    private JComboBox<String> cmbUsuario;
-    private JPasswordField txtPassword;
-    private JButton btnIngresar;
-    private JLabel lblMensaje;
+public class FrmLogin extends javax.swing.JFrame {
+
     private LoginController controller;
 
     public FrmLogin() {
         controller = new LoginController();
-        setTitle("UNISIGA - Iniciar Sesión");
-        setSize(400, 280);
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
-        setLocationRelativeTo(null);
-        setResizable(false);
         initComponents();
+        setLocationRelativeTo(null);
+        cargarUsuarios("Estudiante");
     }
 
+    @SuppressWarnings("unchecked")
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">
     private void initComponents() {
-        JPanel panel = new JPanel(new GridBagLayout());
-        panel.setBorder(BorderFactory.createEmptyBorder(20, 40, 20, 40));
-        GridBagConstraints gbc = new GridBagConstraints();
-        gbc.insets = new Insets(6, 6, 6, 6);
-        gbc.fill = GridBagConstraints.HORIZONTAL;
+        lblTitulo = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        cmbTipo = new javax.swing.JComboBox<>();
+        jLabel3 = new javax.swing.JLabel();
+        cmbUsuario = new javax.swing.JComboBox<>();
+        jLabel4 = new javax.swing.JLabel();
+        txtPassword = new javax.swing.JPasswordField();
+        btnIngresar = new javax.swing.JButton();
+        lblMensaje = new javax.swing.JLabel();
 
-        JLabel titulo = new JLabel("SISTEMA UNISIGA v2", SwingConstants.CENTER);
-        titulo.setFont(new Font("Arial", Font.BOLD, 16));
-        gbc.gridx = 0; gbc.gridy = 0; gbc.gridwidth = 2;
-        panel.add(titulo, gbc);
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("UNISIGA - Iniciar Sesión");
+        setResizable(false);
+        getContentPane().setLayout(null);
 
-        gbc.gridwidth = 1;
-        gbc.gridx = 0; gbc.gridy = 1;
-        panel.add(new JLabel("Tipo de usuario:"), gbc);
-        cmbTipo = new JComboBox<>(new String[]{"Estudiante", "Académico"});
-        gbc.gridx = 1;
-        panel.add(cmbTipo, gbc);
+        lblTitulo.setFont(new java.awt.Font("Arial", java.awt.Font.BOLD, 16));
+        lblTitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblTitulo.setText("SISTEMA UNISIGA v2");
+        getContentPane().add(lblTitulo);
+        lblTitulo.setBounds(50, 20, 300, 30);
 
-        gbc.gridx = 0; gbc.gridy = 2;
-        panel.add(new JLabel("Usuario:"), gbc);
-        cmbUsuario = new JComboBox<>();
-        gbc.gridx = 1;
-        panel.add(cmbUsuario, gbc);
+        jLabel2.setText("Tipo de usuario:");
+        getContentPane().add(jLabel2);
+        jLabel2.setBounds(30, 65, 120, 25);
 
-        gbc.gridx = 0; gbc.gridy = 3;
-        panel.add(new JLabel("Contraseña:"), gbc);
-        txtPassword = new JPasswordField(15);
-        gbc.gridx = 1;
-        panel.add(txtPassword, gbc);
-
-        btnIngresar = new JButton("Ingresar");
-        gbc.gridx = 0; gbc.gridy = 4; gbc.gridwidth = 2;
-        panel.add(btnIngresar, gbc);
-
-        lblMensaje = new JLabel("", SwingConstants.CENTER);
-        lblMensaje.setForeground(Color.RED);
-        gbc.gridy = 5;
-        panel.add(lblMensaje, gbc);
-
-        add(panel);
-        cargarUsuarios("Estudiante");
-
-        cmbTipo.addActionListener(e -> {
-            lblMensaje.setText("");
-            cargarUsuarios((String) cmbTipo.getSelectedItem());
-        });
-
-        btnIngresar.addActionListener(e -> {
-            String tipo = (String) cmbTipo.getSelectedItem();
-            String usuario = (String) cmbUsuario.getSelectedItem();
-            String password = new String(txtPassword.getPassword());
-            MiembroUniversitario user = controller.autenticar(tipo, usuario, password);
-            if (user != null) {
-                MenuController mc = new MenuController(user, controller);
-                new FrmMenuPrincipal(mc).setVisible(true);
-                dispose();
-            } else {
-                lblMensaje.setText("Credenciales incorrectas.");
+        cmbTipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[]{"Estudiante", "Académico"}));
+        cmbTipo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbTipoActionPerformed(evt);
             }
         });
+        getContentPane().add(cmbTipo);
+        cmbTipo.setBounds(160, 65, 180, 25);
+
+        jLabel3.setText("Usuario:");
+        getContentPane().add(jLabel3);
+        jLabel3.setBounds(30, 100, 120, 25);
+
+        getContentPane().add(cmbUsuario);
+        cmbUsuario.setBounds(160, 100, 180, 25);
+
+        jLabel4.setText("Contraseña:");
+        getContentPane().add(jLabel4);
+        jLabel4.setBounds(30, 135, 120, 25);
+
+        getContentPane().add(txtPassword);
+        txtPassword.setBounds(160, 135, 180, 25);
+
+        btnIngresar.setText("Ingresar");
+        btnIngresar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnIngresarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnIngresar);
+        btnIngresar.setBounds(120, 175, 160, 30);
+
+        lblMensaje.setForeground(new java.awt.Color(255, 0, 0));
+        lblMensaje.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        getContentPane().add(lblMensaje);
+        lblMensaje.setBounds(30, 215, 340, 25);
+
+        setSize(400, 280);
+    }// </editor-fold>
+
+    private void cmbTipoActionPerformed(java.awt.event.ActionEvent evt) {
+        lblMensaje.setText("");
+        cargarUsuarios((String) cmbTipo.getSelectedItem());
+    }
+
+    private void btnIngresarActionPerformed(java.awt.event.ActionEvent evt) {
+        String tipo = (String) cmbTipo.getSelectedItem();
+        String usuario = (String) cmbUsuario.getSelectedItem();
+        String password = new String(txtPassword.getPassword());
+        MiembroUniversitario user = controller.autenticar(tipo, usuario, password);
+        if (user != null) {
+            MenuController mc = new MenuController(user, controller);
+            new FrmMenuPrincipal(mc).setVisible(true);
+            dispose();
+        } else {
+            lblMensaje.setText("Credenciales incorrectas.");
+        }
     }
 
     private void cargarUsuarios(String tipo) {
@@ -95,4 +110,16 @@ public class FrmLogin extends JFrame {
                 : controller.getNombresAcademicos();
         for (String n : nombres) cmbUsuario.addItem(n);
     }
+
+    // Variables declaration - do not modify
+    private javax.swing.JButton btnIngresar;
+    private javax.swing.JComboBox<String> cmbTipo;
+    private javax.swing.JComboBox<String> cmbUsuario;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel lblMensaje;
+    private javax.swing.JLabel lblTitulo;
+    private javax.swing.JPasswordField txtPassword;
+    // End of variables declaration
 }
