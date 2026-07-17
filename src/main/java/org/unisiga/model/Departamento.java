@@ -19,6 +19,8 @@ public class Departamento {
     }
 
     public String getCodigoDepto() { return codigoDepto; }
+    public void setCodigoDepto(String codigoDepto) { this.codigoDepto = codigoDepto; }
     public String getNombre() { return nombre; }
+    public void setNombre(String nombre) { this.nombre = nombre; }
     public List<Academico> getAcademicos() { return academicos; }
 }

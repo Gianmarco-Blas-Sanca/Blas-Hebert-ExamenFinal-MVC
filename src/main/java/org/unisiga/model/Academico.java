@@ -26,6 +26,9 @@ public class Academico extends MiembroUniversitario {
     }
 
     public String getIdEmpleado() { return idEmpleado; }
+    public void setIdEmpleado(String idEmpleado) { this.idEmpleado = idEmpleado; }
+    public String getTipoContrato() { return tipoContrato; }
+    public void setTipoContrato(String tipoContrato) { this.tipoContrato = tipoContrato; }
     public Departamento getDepartamento() { return departamento; }
     public void setDepartamento(Departamento depto) { this.departamento = depto; }
     public List<Seccion> getSeccionesDictadas() { return seccionesDictadas; }
