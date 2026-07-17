@@ -59,13 +59,37 @@ public class LoginController {
         poo.crearEvaluacion(3, "Examen Final", 0.40f);
 
         Estudiante juan = new Estudiante("11111111-1", "Juan Pérez", "juan@unisiga.cl", "2023001", 2023, 5.5f);
+        // Inscripción Aprobada (sirve como prerrequisito)
         Inscripcion insJuanProg = new Inscripcion(juan, progA);
         insJuanProg.setEstadoInscripcion("Aprobado");
         juan.getInscripciones().add(insJuanProg);
         progA.getInscripciones().add(insJuanProg);
+        
+        // Inscripciones activas (Cursando)
+        Inscripcion insJuanAlg = new Inscripcion(juan, algA);
+        insJuanAlg.setEstadoInscripcion("Cursando");
+        juan.getInscripciones().add(insJuanAlg);
+        algA.getInscripciones().add(insJuanAlg);
+        
+        Inscripcion insJuanPoo = new Inscripcion(juan, pooA);
+        insJuanPoo.setEstadoInscripcion("Cursando");
+        juan.getInscripciones().add(insJuanPoo);
+        pooA.getInscripciones().add(insJuanPoo);
+        
         estudiantesDb.add(juan);
 
         Estudiante maria = new Estudiante("22222222-2", "María García", "maria@unisiga.cl", "2023002", 2023, 4.8f);
+        // Inscripciones activas (Cursando)
+        Inscripcion insMariaProg = new Inscripcion(maria, progA);
+        insMariaProg.setEstadoInscripcion("Cursando");
+        maria.getInscripciones().add(insMariaProg);
+        progA.getInscripciones().add(insMariaProg);
+        
+        Inscripcion insMariaAlg = new Inscripcion(maria, algB);
+        insMariaAlg.setEstadoInscripcion("Cursando");
+        maria.getInscripciones().add(insMariaAlg);
+        algB.getInscripciones().add(insMariaAlg);
+        
         estudiantesDb.add(maria);
     }
 
