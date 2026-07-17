@@ -1,8 +1,5 @@
 package org.unisiga.view;
 
-/**
- * Representa la interfaz de usuario por consola.
- */
 public class ConsoleView {
     public void desplegarMenu() {
         System.out.println("=================================================");

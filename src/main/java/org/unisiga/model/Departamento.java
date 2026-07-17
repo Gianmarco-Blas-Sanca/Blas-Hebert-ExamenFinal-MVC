@@ -3,10 +3,6 @@ package org.unisiga.model;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Representa un Departamento Académico (ej: Computación).
- * [EVALUACIÓN]: Demostrar la implementación del concepto de agregación (el académico pertenece, pero tiene ciclo independiente).
- */
 public class Departamento {
     private String codigoDepto;
     private String nombre;
@@ -19,7 +15,6 @@ public class Departamento {
     }
 
     public void asociarAcademico(Academico acad) {
-        // TODO: Asociar el académico a este departamento asegurando la bidireccionalidad segura
         throw new UnsupportedOperationException("Método asociarAcademico() no implementado aún.");
     }
 
