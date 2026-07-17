@@ -171,7 +171,7 @@ public class FrmRegistrarNota extends javax.swing.JFrame {
         evaluaciones.clear();
         int idx = cmbSeccion.getSelectedIndex();
         if (idx < 0 || secciones == null || secciones.isEmpty()) return;
-        evaluaciones = controller.getEvaluacionesDe(secciones.get(idx));
+        evaluaciones.addAll(controller.getEvaluacionesDe(secciones.get(idx)));
         for (Evaluacion ev : evaluaciones) cmbEvaluacion.addItem(ev.getTitulo());
     }
 
